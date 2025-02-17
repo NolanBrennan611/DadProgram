@@ -27,14 +27,91 @@ const InvoiceForm = () => {
 
     const printContent = () => {
         if (divRef.current) {
-            var restorePage = document.body.innerHTML;
-            var printcontent = divRef.current.innerHTML;
-            document.body.innerHTML = printcontent;
-            window.print();
-            document.body.innerHTML = restorePage;
-            window.location.reload();
+            const printWindow = window.open("", "_blank");
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Print Invoice</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                padding: 20px;
+                            }
+                            .form {
+                                width: 1063px;
+                                height: 1375px;
+                                margin: 0 auto;
+                                padding: 20px;
+                                border: 1px solid #ccc;
+                                font-size: 1.1em;
+                            }
+                            .display-item {
+                                border-bottom: 1px solid black;
+                                width: 100%;
+                            }
+                            .title-box {
+                                text-align: center;
+                                margin-bottom: 30px;
+                            }
+                            .name-date-box {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 20px;
+                                align-items: center;
+                                margin-bottom: 30px;
+                            }
+                            .name-field, .date-field {
+                                display: flex;
+                                align-items: center;
+                            }
+                            .description-box {
+                                margin-bottom: 4%;
+                            }
+                            .invoice-info-box {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                align-items: center;
+                            }
+                            .approval-box {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 5px;
+                                align-items: start;
+                                margin-top: 4%;
+                                font-size: 1em;
+                            }
+                            .checkboxes-box {
+                                display: grid;
+                                grid-template-columns: repeat(4, 1fr);
+                                grid-auto-rows: auto;
+                                gap: 10px;
+                                font-size: 0.9em;
+                                line-height: 1.2;
+                                margin-top: 6%;
+                            }
+                            #total-amount {
+                                color: green;
+                                font-weight: bold;
+                            }
+                            @media print {
+                                @page {
+                                    margin: 0;
+                                }
+                                body {
+                                    margin: 0;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>${divRef.current.innerHTML}</body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
         }
-    }
+    };
 
     const appendDescription = (value) => {
         setDescription((prevDescription) => {

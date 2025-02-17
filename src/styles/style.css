@@ -46,6 +46,7 @@ body {
 .name-field, .date-field {
     display: flex;
     align-items: center; /* Vertically align the label and input within each field */
+    font-size: 1.25em;
 }
 
 .name-field input, .date-field input {
@@ -63,6 +64,7 @@ body {
 
 .description-box {
     margin-bottom: 4%;
+    font-size: 1.25em;
 }
 
 .description {
@@ -76,6 +78,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
     align-items: center; /* Align items vertically in the center */
+    font-size: 1.25em;
 }
 
 .invoice-info-box .cheque-field,
@@ -101,6 +104,7 @@ body {
     gap: 5px;
     align-items: start;
     margin-top: 4%;
+    font-size: 1em;
 }
 
 .approval-box p {
