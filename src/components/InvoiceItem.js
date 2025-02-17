@@ -52,7 +52,12 @@ const InvoiceItem = ({appendDescription, addTotal}) => {
                 type="text"
                 value={itemAmount}
                 onChange={(e) => {
-                    setItemAmount(e.target.value.replace(/[^0-9.]/g, ""))}}
+                    // Allow leading minus, digits, and at most one decimal point
+                    const value = e.target.value;
+                    if (/^-?\d*\.?\d*$/.test(value)) {
+                        setItemAmount(value);
+                    }
+                }}
                 onBlur={() => setIsItemAmountVisible(false)}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") setIsItemAmountVisible(false);
