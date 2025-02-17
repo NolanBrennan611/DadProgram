@@ -53,6 +53,13 @@ const InvoiceForm = () => {
 
     return (
         <div>
+            <div className="other-content-box">
+                <button onClick={addItem}>Add Item</button>
+                <button onClick={() => setIsNameInputVisible(true)}>Change Name</button>
+                <button onClick={() => setIsDateInputVisible(true)}>Change Date</button>
+                <button onClick={() => setIsInvoiceNumberInputVisible(true)}>Change Invoice Number</button>
+                <button onClick={() => printContent("form")}>Download PDF/Print</button>
+            </div>
             <div className="form" ref={divRef}>
                 <div className="title-box">
                     <h3>WAYWAYSEECAPPO FIRST NATION</h3>
@@ -170,14 +177,6 @@ const InvoiceForm = () => {
                     <p>VLT: ___</p>
                     <p>REBATE ACCT: ___</p>
                 </div>
-            </div>
-
-            <div className="other-content-box">
-                <button onClick={addItem}>Add Item</button>
-                <button onClick={() => setIsNameInputVisible(true)}>Change Name</button>
-                <button onClick={() => setIsDateInputVisible(true)}>Change Date</button>
-                <button onClick={() => setIsInvoiceNumberInputVisible(true)}>Change Invoice Number</button>
-                <button onClick={() => printContent("form")}>Download PDF/Print</button>
             </div>
         </div>
     );
