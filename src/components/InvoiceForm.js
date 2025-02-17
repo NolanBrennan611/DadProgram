@@ -53,12 +53,16 @@ const InvoiceForm = () => {
                                 text-align: center;
                                 margin-bottom: 30px;
                             }
+                            .invoice-info-box .invoice-no-field label {
+                                white-space: nowrap;
+                            }
                             .name-date-box {
                                 display: grid;
                                 grid-template-columns: 1fr 1fr;
                                 gap: 20px;
                                 align-items: center;
                                 margin-bottom: 30px;
+                                font-size: 1.25em;
                             }
                             .name-field, .date-field {
                                 display: flex;
