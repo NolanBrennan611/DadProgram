@@ -34,6 +34,7 @@ const InvoiceItem = ({appendDescription, addTotal}) => {
                     <option value="Tobacco Purchases 5020">Tobacco Purchases 5020</option>
                     <option value="Grocery Purchase 5040">Grocery Purchase 5040</option>
                     <option value="Non Food 5050">Non Food 5050</option>
+                    <option value="Automotive 5060">Automotive 5060</option>
                     <option value="Fuel 5300">Fuel 5300</option>
                     <option value="GST Payable 2315">GST Payable 2315</option>
                     <option value="PST Payable 2300">PST Payable 2300</option>
